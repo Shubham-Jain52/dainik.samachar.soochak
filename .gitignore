@@ -1,0 +1,6 @@
+automation.ipynb
+foo.pdf
+news.csv
+__pycache__/
+.venv/
+.env
