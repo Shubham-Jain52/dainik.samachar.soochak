@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 import pandas as pd
 import yagmail
 import os
@@ -8,8 +9,13 @@ from dotenv import load_dotenv
 
 website = "https://www.indiatoday.in/"
 path = "/usr/bin/chromedriver"
-serv = Service(executable_path=path) 
-driver = webdriver.Chrome(service=serv)
+options = Options()
+options.add_argument("--headless")           # Run without UI
+options.add_argument("--no-sandbox")         # Required on GitHub runners
+options.add_argument("--disable-dev-shm-usage")  # Prevents /dev/shm issues
+
+service = Service("/usr/bin/chromedriver")
+driver = webdriver.Chrome(service=service, options=options)
 
 driver.get(website)
 
