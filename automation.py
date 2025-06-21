@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 
 website = "https://www.indiatoday.in/"
-path = "/usr/local/bin/chromedriver"
+path = "/usr/bin/chromedriver"
 serv = Service(executable_path=path) 
 driver = webdriver.Chrome(service=serv)
 
