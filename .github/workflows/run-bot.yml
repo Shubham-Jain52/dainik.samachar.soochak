@@ -2,7 +2,7 @@ name: run-bot
 
 on:
   schedule:
-    - cron: "6 3 * * *"
+    - cron: "12 3 * * *"
 
 jobs:
   run-bot:
