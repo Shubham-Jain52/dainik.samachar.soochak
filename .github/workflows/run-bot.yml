@@ -2,33 +2,14 @@ name: run-bot
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # every 5 minutes
+    - cron: "*/1 * * * *"
   workflow_dispatch:
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
     steps:
-      - name: 📥 Checkout
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: 🧩 Install browser
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser chromium-driver
-
-      - name: 📦 Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install selenium pandas yagmail python-dotenv
-
-      - name: 🚀 Run bot
-        env:
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-        run: python automation.py
+      - name: Test
+        run: echo "Bot triggered!"
