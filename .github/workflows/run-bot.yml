@@ -2,7 +2,8 @@ name: run-bot
 
 on:
   schedule:
-    - cron: "19 3 * * *"
+    - cron: "* * * * *"   # every minute
+  workflow_dispatch:      # enables manual triggering too
 
 jobs:
   run-bot:
